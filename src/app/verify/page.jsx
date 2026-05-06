@@ -1,10 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import api from '@/lib/api'
 
-function VerifyPage() {
+function VerifyContent() {
   const searchParams = useSearchParams()
   const [status, setStatus]   = useState('loading')
   const [message, setMessage] = useState('')
@@ -45,11 +45,13 @@ function VerifyPage() {
       </div>
     </div>
   )
-  export default function VerifyPage() {
+}
+
+export default function VerifyPage() {
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full"/></div>}>
       <VerifyContent />
     </Suspense>
   )
 }
-}
+
